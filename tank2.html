@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="width: 190px; height: 190px; border: 1px solid black;" id="battleFiled">
+        <div
+          style="top: 19px; left: 38px;width: 19px; height: 19px; background-image: url('tank-1.png');background-size: 100% 100%;position: relative;"
+          id="tank">
+        </div>
+        <div
+          style="top: 76px; left: 133px;width: 19px; height: 19px; background-image: url('boom.png');background-size: 100% 100%;position: relative;"
+          id="boom">
+        </div>
+      </div>
+      <button onclick="guitoado()">gui</button>
+</body>
+</html>
+<script>
+    let ox=0;
+    let oy=0
+    function moveup(){
+        oy-=19;
+        let toado=document.getElementById("tank");
+        toado.style["top"] = oy+ 19 + "px";
+        let top_tank=parseInt(toado.style["top"]);
+        let left_tank=parseInt(toado.style["left"]);
+        let top_boom=parseInt(boom.style["top"]);
+        let left_boom=parseInt(boom.style["left"]);
+        if (top_tank==top_boom && left_tank==left_boom){
+            toado.style.backgroundImage="url('explosion.png')";
+            toado.style.zIndex=1;
+        }
+    }
+    function movedown(){
+        oy+=19;
+        let toado=document.getElementById("tank");
+        toado.style["top"] = oy+ 19 + "px";
+        let top_tank=parseInt(toado.style["top"]);
+        let left_tank=parseInt(toado.style["left"]);
+        let top_boom=parseInt(boom.style["top"]);
+        let left_boom=parseInt(boom.style["left"]);
+        if (top_tank==top_boom && left_tank==left_boom){
+            toado.style.backgroundImage="url('explosion.png')";
+            toado.style.zIndex=1;
+        }
+    }
+    function moveleft(){
+        ox-=19;
+        let toado=document.getElementById("tank");
+        toado.style["left"] = ox + 38 + "px";
+        let top_tank=parseInt(toado.style["top"]);
+        let left_tank=parseInt(toado.style["left"]);
+        let top_boom=parseInt(boom.style["top"]);
+        let left_boom=parseInt(boom.style["left"]);
+        if (top_tank==top_boom && left_tank==left_boom){
+            toado.style.backgroundImage="url('explosion.png')";
+            toado.style.zIndex=1;
+        }
+    }
+    function moveright(){
+        ox+=19;
+        let toado=document.getElementById("tank");
+        toado.style["left"] = ox + 38 + "px";
+        let top_tank=parseInt(toado.style["top"]);
+        let left_tank=parseInt(toado.style["left"]);
+        let top_boom=parseInt(boom.style["top"]);
+        let left_boom=parseInt(boom.style["left"]);
+        if (top_tank==top_boom && left_tank==left_boom){
+            toado.style.backgroundImage="url('explosion.png')";
+            toado.style.zIndex=1;
+        }
+    }
+    function guitoado(){
+        let toado=document.getElementById("tank");
+        let top_tank=parseInt(toado.style["top"]);
+        let left_tank=parseInt(toado.style["left"]);
+        alert(top_tank+" "+left_tank)
+    }
+    document.onkeydown = function(e) {
+    switch(e.which) {
+        case 37: 
+        moveleft();
+        break;
+
+        case 38: 
+        moveup();
+        break;
+
+        case 39: 
+        moveright();
+        break;
+        case 40: 
+        movedown();
+        break;
+
+        default: return; 
+    }
+    e.preventDefault(); 
+}
+</script>
